@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/destroy'
-
-  root to: 'toppages#index'
-  # resources :tasks
+  #root to: 'toppages#index'
+  root to: 'tasks#index'
   resources :tasks, only: [:show, :new, :create, :destroy, :update, :edit]
 
   get 'login', to: 'sessions#new'
@@ -12,5 +8,5 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   get 'signup', to: 'users#new'
-  resources :users, only: [:index, :show, :new, :create]
+  resources :users, only: [:create]
 end
